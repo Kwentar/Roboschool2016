@@ -41,6 +41,8 @@ True
 (480, 640, 3)
 ```
 
+см. пример camera.py
+
 ### Установка Darknet:
 
 ```
@@ -53,7 +55,16 @@ make
 
 Правильный вывод: `usage: ./darknet <function>`
 
-### Работа с перефирией: 
+С папки data/ репозитория перенести файл darknet.cfg в директорию darknet/cfg/, файл darknet.weights в директорию darknet/.
+
+Пример вызова из кода:
+```python
+output = subprocess.check_output("./darknet classifier predict cfg/imagenet1k.dataset cfg/darknet.cfg darknet.weights /home/root/test.png", cwd="/home/root/darknet/", shell=True)
+```
+
+см. пример darknet_camera.py
+
+### Работа с периферией: 
 пакет для работы с вводом-выводом - `mraa`
 
 #### Помигать диодиком:
@@ -68,6 +79,9 @@ for _ in range(10):
     led.write(0)  # turn off
     time.sleep(1)  # wait 1 sec
 ```
+
+см. пример led.py
+
 #### Работа с кнопкой:
 ```python
 import mraa
@@ -84,6 +98,7 @@ btn_state = btn.read()
         btn_down = True
 ```
 
+см. пример darknet_camera.py
 
 #### Работа с экраном:
 подключение:
@@ -107,4 +122,6 @@ display.setCursor(0,0)  # строка, столбец
 ```python
 display.setColor(r, g, b)
 ```
+
+см. примеры camera.py и darknet_camera.py
 
