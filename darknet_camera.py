@@ -1,9 +1,7 @@
-import pyupm_i2clcd as lcd
 import cv2
 import mraa
 import subprocess
 
-display = lcd.Jhd1313m1(0, 0x3E, 0x62)
 btn = mraa.Gpio(3)
 btn.dir(mraa.DIR_IN)
 cap = cv2.VideoCapture()
@@ -20,11 +18,6 @@ for _ in range(100):
         out_split = output.split('\n')
         t = out_split[1].split(':')[1].split()[2]
         class_ = out_split[2].split(':')[0]
-        display.clear()
-        display.setCursor(0,0)
-        display.write("{} sec".format(t))
-        display.setCursor(1,0)
-        display.write(class_)
-        display.setColor(20,20,20)
+        print("{} sec, class is: ".format(t, class_))
         btn_down = True
     ret, frame = cap.read()

@@ -94,7 +94,7 @@ output = subprocess.check_output("./darknet classifier predict cfg/imagenet1k.da
 ```python
 import mraa
 import time
-led = mraa.Gpio(2)
+led = mraa.Gpio(13)
 led.dir(mraa.DIR_OUT)
 for _ in range(10):
     led.write(1)  # turn on
@@ -146,5 +146,4 @@ display.setCursor(0,0)  # строка, столбец
 display.setColor(r, g, b)
 ```
 
-см. примеры camera.py и darknet_camera.py
 
