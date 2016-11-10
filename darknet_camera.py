@@ -18,6 +18,6 @@ for _ in range(100):
         out_split = output.split('\n')
         t = out_split[1].split(':')[1].split()[2]
         class_ = out_split[2].split(':')[0]
-        print("{} sec, class is: ".format(t, class_))
+        print("{} sec, class is: {}".format(t, class_))
         btn_down = True
     ret, frame = cap.read()
